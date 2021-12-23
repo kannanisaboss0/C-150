@@ -1,0 +1,54 @@
+
+<!-------------------------------~TrainRenderer~--------------------------------------->
+<!DOCTYPE>
+<head>
+    <script src="https://aframe.io/releases/1.2.0/aframe.min.js"></script>
+</head>
+<body>
+
+    <!--Creating the world-->
+   <a-scene>
+    <!--Text to inform the user about what is in store and the controls to move the camera-->   
+    WAIT FOR IT   WAIT FOR IT   WAIT FOR IT  WAIT FOR IT  WAIT FOR IT  WAIT FOR IT   WAIT FOR IT  WAIT FOR IT  WAIT FOR IT  WAIT FOR IT  WAIT FOR IT   WAIT FOR IT  WAIT FOR IT USE WASD FOR MOVEMENT
+
+    <!--Creating trhee type of light: ambient, directional from one direction and directional from the opposite for optimal lighting-->
+    <a-entity light="type:directional;intensity:1;color:yellow;distance:50;castShadow:true" position="300 50 0" ></a-entity>
+    <a-entity light="type:directional;intensity:1;color:yellow;distance:50;castShadow:true" position="-300 50 0" ></a-entity>
+    <a-entity light="type:ambient;intensity:0.1;" ></a-entity>
+
+    <!--Downloading an asset, that is, the pair of trains-->
+    <a-assets>
+        <a-asset-item id="trains(obj)" src="./Train/tinker.obj"></a-asset-item>
+        <a-asset-item id="trains(mtl)" src="./Train/obj.mtl"></a-asset-item>
+    </a-assets>
+
+      <!--Creating a plane-->
+    <a-plane position="0 -10 0" width="200" height="200" rotation="-90 0 0" ></a-plane>
+
+    <!--Defining the position and properties of the camera -->
+    <a-camera  position="-1.25 -9.9 4" obj-model="obj:#trains(obj);mtl:#trains(mtl)"   rotation="270 0 0" shadow="cast: true"  wasd-controls="acceleration:23" ></a-camera>
+    
+    <!--Creating a static version of the donwloaded asset-->
+    <a-entity  position="-2 -10 0" obj-model="obj:#trains(obj);mtl:#trains(mtl)" metalness=2 scale="0.01 0.01 0.01" rotation="270 0 0" shadow="cast: true"></a-entity>
+   
+    <!--Creating an animated version of the donwloaded asset-->
+    <a-entity animation="property:position;to: 1 -10 50;dur:30000;easing:linear;loop:true" position="1 -10 -80" obj-model="obj:#trains(obj);mtl:#trains(mtl)" metalness=2 scale="0.01 0.01 0.01" rotation="270 0 0" shadow="cast: true"></a-entity>
+
+    <!--Creating the station-->
+    <a-box position="-4 -10 0" width="2" height="0.5"depth="3" color="brown" shadow="recieve:true"></a-box>
+
+    <!--Creating the tracks for the pair of trains-->
+    <a-box position="0.71 -10 0" width="0.02" height="0.05"depth="50" color="brown" shadow="recieve:true"></a-box>
+    <a-box position="0.9 -10 0" width="0.02" height="0.05"depth="50" color="brown" shadow="recieve:true"></a-box>
+    <a-box position="1.2 -10 0" width="0.02" height="0.05"depth="50" color="brown" shadow="recieve:true"></a-box>
+    <a-box position="1.39 -10 0" width="0.02" height="0.05"depth="50" color="brown" shadow="recieve:true"></a-box>
+
+    <!--Creating random rocks-->
+    <a-dodecahedron position="-1 -10 2" radius="0.05"></a-dodecahedron>
+    <a-dodecahedron  position="-1.6 -10 2" radius="0.2"></a-dodecahedron>
+
+   </a-scene>
+    
+</body>
+
+<!-------------------------------~TrainRenderer~--------------------------------------->
